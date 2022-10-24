@@ -8,7 +8,6 @@ function AirChamber(; name )
     ODESytem
     """
 
-
     @named PartialCompliant 
     @named Environment 
     @parameters [
@@ -41,3 +40,19 @@ function AirChamber(; name )
 
 end
 
+function GenericPressureLoss(; name)
+    @parameters [
+        D_a , [ unit = u"mm"] # port A diameter
+        D_b , [ unit = u"mm"] # port B diameter
+        ζ1 = 2, # loss factor of port_a -> port_b
+        ζ2 = 2, # loss factor of port_b -> port_a
+        Re_turbulent = 1000,
+        D_Re = D_a, # diameter used to compute Re 
+        zetaLaminarKnown = false, # true if zeta = c0/Re laminar region
+        c0 = 1, # zeta = c0/Re; dp = zeta*d_Re*v_Re^2/2, Re=v_Re*D_Re*d_Re/eta_Re
+    ]
+    
+    eqs = [
+        
+    ]
+end
